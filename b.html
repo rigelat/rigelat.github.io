@@ -125,6 +125,43 @@ function bowling(input) {
 <!-- Main JS (Do not remove) -->
 <script src="js/main.js"></script>
 
+
+<script type="application/javascript">
+    var scores = [];
+
+    function bowling(input) {
+        var lines = input.split('\n'), line;
+        while (line = lines.shift()) {
+            var balls = line.replace(/\s/g, '').split(''), lastFrame = line.split(' ').pop(),
+                fillBalls = lastFrame.charAt(0) == 'X' ? 2 : lastFrame.charAt(1) == '/' ? 1 : 0;
+            for (var i = 0, pinsHit = []; i < balls.length; i++) {
+                pinsHit.push(balls[i] == 'X' ? 10 : balls[i] == '-' ? 0 : balls[i] == '/' ? 10 - pinsHit[i - 1] : +balls[i]);
+            }
+            for (var i = 0, score = 0; i < balls.length - fillBalls; i++) {
+                score += pinsHit[i];
+                if (balls[i] == '/') score += pinsHit[i + 1];
+                if (balls[i] == 'X') score += pinsHit[i + 1] + pinsHit[i + 2];
+            }
+            console.log(score);
+            scores.push(score);
+        }
+    }
+
+    bowling(jQuery("#d").html());
+
+    c3.generate({
+        data: {
+            columns: [ scores ]
+        }
+        ,axis: {
+            y: {
+                max: 300,
+                min: 0,
+            }
+        }
+    });
+</script>
+
 </body>
 </html>
 
