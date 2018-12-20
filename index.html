@@ -85,15 +85,19 @@
 	<!-- Main JS (Do not remove) -->
 	<script src="js/main.js"></script>
 
-
 	<script type="text/javascript">
         var u = new SpeechSynthesisUtterance();
         u.text = '안녕하세요 라이젤 웹페이지 입니다.';
         u.lang = 'ko-KR';
         u.rate = 1.2;
         // u.onend = function(event) { alert('Finished in ' + event.elapsedTime + ' seconds.'); }
-        speechSynthesis.speak(u);
+        function ttsTest() {
+            speechSynthesis.speak(u);
+        }
+        // ttsTest();
 	</script>
+
+	<input type="button" onclick="ttsTest()" value="읽기"><br>
 
 	</body>
 </html>
