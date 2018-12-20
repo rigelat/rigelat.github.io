@@ -86,12 +86,13 @@
 	<script src="js/main.js"></script>
 
 
-	<script type="application/javascript">
-
-        const ut = new SpeechSynthesisUtterance('안녕하세요 라이젤 웹페이지 입니다.');
-        ut.lang = 'ko-KR';
-        speechSynthesis.speak(ut);
-
+	<script type="text/javascript">
+        var u = new SpeechSynthesisUtterance();
+        u.text = '안녕하세요 라이젤 웹페이지 입니다.';
+        u.lang = 'ko-KR';
+        u.rate = 1.2;
+        // u.onend = function(event) { alert('Finished in ' + event.elapsedTime + ' seconds.'); }
+        speechSynthesis.speak(u);
 	</script>
 
 	</body>
