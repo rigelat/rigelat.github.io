@@ -54,6 +54,7 @@
 	<!-- Style -->
 	<link rel="stylesheet" href="css/style.css">
 
+	<link rel="stylesheet" href="css/flipclock.css">
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
@@ -88,6 +89,7 @@
 	<!-- Main JS (Do not remove) -->
 	<script src="js/main.js"></script>
 
+
 	<script type="text/javascript">
         var u = new SpeechSynthesisUtterance();
         u.text = '안녕하세요 라이젤 페이지 입니다.';
@@ -115,9 +117,12 @@
 		</p>
 		<p>{{ answer }}</p>
 
-		<p>출처 : https://kr.vuejs.org/v2/guide/computed.html</p>
+		<a href="https://kr.vuejs.org/v2/guide/computed.html"><p>출처 : https://kr.vuejs.org/v2/guide/computed.html</p></a>
 	</div>
 
+	<div class="clock-example daily-counter-2 clearfix"></div>
+	<script src="js/flipclock.min.js"></script>
+	<script src="js/moment.min.js"></script>
 
  	<a href="/food.html"><small>맛집추천</small></a>
 	<script>
@@ -162,6 +167,22 @@
                 )
             }
         })
+
+
+		// counter
+		$(document).ready(function() {
+
+			var start = moment("2019-7-16"); // another date
+			var now = moment(new Date()); //todays date
+			var duration = moment.duration(now.diff(start));
+			var seconds = Math.round(duration.asSeconds());
+
+			var clock = $('.daily-counter-2').FlipClock(seconds, {
+				clockFace: 'DailyCounter',
+				countdown: false,
+				// showSeconds: false
+			});
+		});
 
 	</script>
 
