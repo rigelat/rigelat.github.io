@@ -89,17 +89,108 @@
 	<script src="js/magnific-popup-options.js"></script>
 	<!-- Main JS (Do not remove) -->
 	<script src="js/main.js"></script>
-<br>
-<pre>
 
 
-  aws ml image bowling score
-  kubernates
-  spark big data
+	<script type="text/javascript">
+        var u = new SpeechSynthesisUtterance();
+        u.text = '안녕하세요 라이젤 페이지 입니다.';
+        u.lang = 'ko-KR';
+        u.rate = 1.2;
+        // u.onend = function(event) { alert('Finished in ' + event.elapsedTime + ' seconds.'); }
+        function ttsTest() {
+            speechSynthesis.speak(u);
+        }
+        // ttsTest();
+	</script>
 
-  The Beast in the Jungle  차이나는클라스
+	<script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+	<script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
-</pre>
+	<a onclick="ttsTest()"><small>rigel 라이젤</small></a>
+	<!--<a href="b.html"><small>b</small></a>-->
+	<br>
+
+	<div id="watch-example">
+			yes/no 질문을 물어보세요:
+			<input v-model="question">
+		<br>
+		{{ answer }}
+
+		<br>
+		<a href="https://kr.vuejs.org/v2/guide/computed.html"><p>출처 : https://kr.vuejs.org/v2/guide/computed.html</p></a>
+	</div>
+	무사고
+	<br>
+	<div class="clock-example daily-counter-2 clearfix"></div>
+
+	<script src="js/flipclock.min.js"></script>
+	<script src="js/moment.min.js"></script>
+
+ 	<a href="/food.html"><small>추천맛집 리스트</small></a>
+	<script>
+        var watchExampleVM = new Vue({
+            el: '#watch-example',
+            data: {
+                question: '',
+                answer: '질문을 하기 전까지는 대답할 수 없습니다.'
+            },
+            watch: {
+                // 질문이 변경될 때 마다 이 기능이 실행됩니다.
+                question: function (newQuestion) {
+                    this.answer = '입력을 기다리는 중...'
+                    this.getAnswer()
+                }
+            },
+            methods: {
+                // _.debounce는 lodash가 제공하는 기능으로
+                // 특히 시간이 많이 소요되는 작업을 실행할 수 있는 빈도를 제한합니다.
+                // 이 경우, 우리는 yesno.wtf/api 에 액세스 하는 빈도를 제한하고,
+                // 사용자가 ajax요청을 하기 전에 타이핑을 완전히 마칠 때까지 기다리길 바랍니다.
+                // _.debounce 함수(또는 이와 유사한 _.throttle)에 대한
+                // 자세한 내용을 보려면 https://lodash.com/docs#debounce 를 방문하세요.
+                getAnswer: _.debounce(
+                    function () {
+                        if (this.question.indexOf('?') === -1) {
+                            this.answer = '질문에는 일반적으로 물음표가 포함 됩니다. ;-)'
+                            return
+                        }
+                        this.answer = '생각중...'
+                        var vm = this
+                        axios.get('https://yesno.wtf/api')
+                            .then(function (response) {
+                                vm.answer = _.capitalize(response.data.answer)
+                            })
+                            .catch(function (error) {
+                                vm.answer = '에러! API 요청에 오류가 있습니다. ' + error
+                            })
+                    },
+                    // 사용자가 입력을 기다리는 시간(밀리세컨드) 입니다.
+                    500
+                )
+            }
+        })
+
+
+		// counter
+		$(document).ready(function() {
+
+			var start = moment("2019-11-19"); // another date
+			var now = moment(new Date()); //todays date
+			var duration = moment.duration(now.diff(start));
+			var seconds = Math.round(duration.asSeconds());
+
+			var clock = $('.daily-counter-2').FlipClock(seconds, {
+				clockFace: 'DailyCounter',
+				countdown: false,
+				// showSeconds: false
+			});
+		});
+
+	</script>
+
+
+
 	<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/Icx7hBWeULM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
 
 
