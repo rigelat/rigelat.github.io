@@ -101,9 +101,21 @@
 
 	<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/Icx7hBWeULM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
 
-
 	<div id="el"></div>
-<img id="img_form_url">
+	<img id="img_form_url" style="width: 100%;" >
+
+<script type="application/javascript">
+	var images = [4, 6, 7, 8, 9, 11, 13]
+	var randomNumber = Math.floor(Math.random() * images.length)
+	var imagePath = images[randomNumber]
+	var imgurl = "http://rigel.at/images/20200125/" + imagePath + ".jpg"
+	$("#img_form_url").attr("src", imgurl);
+
+
+</script>
+
+
+
 
 
 	<!-- using string template here to work around HTML <option> placement restriction -->
