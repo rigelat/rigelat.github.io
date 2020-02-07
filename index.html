@@ -70,8 +70,6 @@
 	</head>
 	<body>
 
-
-
 <!--	&lt;!&ndash; jQuery &ndash;&gt;-->
 <!--	<script src="js/jquery.min.js"></script>-->
 	<!-- jQuery Easing -->
@@ -101,22 +99,26 @@
 
 	<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/Icx7hBWeULM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
 
+	<iframe id="youtubePlayer" width="100%"  src="https://www.youtube.com/embed/-dWSDu7QBZY?start=12" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	
 	<div id="el"></div>
 	<img id="img_form_url" style="width: 100%;" >
 
 <script type="application/javascript">
-	var images = [4, 6, 7, 8, 9, 11, 13]
-	var randomNumber = Math.floor(Math.random() * images.length)
-	var imagePath = images[randomNumber]
-	var imgurl = "http://rigel.at/images/20200125/" + imagePath + ".jpg"
+	var images = [4, 6, 7, 8, 9, 11, 13];
+	var randomNumber = Math.floor(Math.random() * images.length);
+	var imagePath = images[randomNumber];
+	var imgurl = "http://rigel.at/images/20200125/" + imagePath + ".jpg";
 	$("#img_form_url").attr("src", imgurl);
 
+	var playList = ["-dWSDu7QBZY?start=12","M6kQTpIqpLs"];
+	var playRandNumber = Math.floor(Math.random() * playList.length);
+	var playPath = playList[playRandNumber];
+	
+	var playUrl = "https://www.youtube.com/embed/" + playPath;
+	$("#youtubePlayer").attr("src", playUrl);
 
 </script>
-
-
-
-
 
 	<!-- using string template here to work around HTML <option> placement restriction -->
 	</body>
