@@ -100,9 +100,12 @@
 	<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/Icx7hBWeULM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
 
 	<iframe id="youtubePlayer" width="560" height="315"  src="https://www.youtube.com/embed/-dWSDu7QBZY?start=12" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	
+
 	<div id="el"></div>
 	<img id="img_form_url" style="width: 100%;" >
+
+	<br>
+apollographql : <a href="https://apollo-dubu-mandu.herokuapp.com/">server </a> ,<a href="https://apollo-dubu-client.herokuapp.com//">client </a>
 
 <script type="application/javascript">
 	var images = [4, 6, 7, 8, 9, 11, 13];
@@ -114,7 +117,7 @@
 	var playList = ["-dWSDu7QBZY?start=12","M6kQTpIqpLs","5kjrJaFIAls"];
 	var playRandNumber = Math.floor(Math.random() * playList.length);
 	var playPath = playList[playRandNumber];
-	
+
 	var playUrl = "https://www.youtube.com/embed/" + playPath;
 	$("#youtubePlayer").attr("src", playUrl);
 
