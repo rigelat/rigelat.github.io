@@ -26,6 +26,14 @@
 	 -->
 
   	<!-- Facebook and Twitter integration -->
+<!--    <meta property="og:title" content="rigel 라이젤">-->
+<!--    <meta property="og:description" content="+-+-+-+-+-+- ">-->
+    <meta property="og:image" content="">
+    <meta property="og:url" content="http://rigel.at">
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
@@ -79,9 +87,29 @@
 	<!-- Main JS (Do not remove) -->
 	<script src="js/main.js"></script>
 <br>
+<img src="images/hayabusa2.jpg" width="480" height="270">
 <pre>
-"하둡스퐉 라이젤"
+"사방 백 리 안에 굶어 죽는 사람이 없게 하라" - 최부자
 </pre>
+
+	<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/Icx7hBWeULM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+
+	<iframe id="youtubePlayer" width="560" height="315"  src="https://www.youtube.com/embed/-dWSDu7QBZY?start=12" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+	<br>
+apollographql : <a href="https://apollo-dubu-mandu.herokuapp.com/">server </a> ,<a href="https://apollo-dubu-client.herokuapp.com//">client </a>
+
+<script type="application/javascript">
+
+	var playList = ["axvTuZkT3BY?start=2183","BEgPYVZ69XQ?start=18"];
+	var playRandNumber = Math.floor(Math.random() * playList.length);
+	var playPath = playList[playRandNumber];
+
+	var playUrl = "https://www.youtube.com/embed/" + playPath;
+	$("#youtubePlayer").attr("src", playUrl);
+
+</script>
+
 	<!-- using string template here to work around HTML <option> placement restriction -->
 	</body>
 </html>
